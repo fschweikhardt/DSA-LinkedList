@@ -218,3 +218,7 @@ const findLast = LL => {
     return currNode.val
 }
 console.log(findLast(LKDLST))
+
+
+'Reverse a list'
+
