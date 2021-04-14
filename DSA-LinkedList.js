@@ -141,18 +141,19 @@ const main = () => {
     SLL.insertLast('Helo')
     SLL.insertLast('Husker')
     SLL.insertLast('Starbuck')
-    //SLL.insertLast('Tauhida')
-    //SLL.remove('Husker')
-    //SLL.insertBefore('Athena', 'Boomer')
-    //SLL.insertAfter('Hotdog', 'Helo')
-    //SLL.find('Hotdog')
+    // SLL.insertLast('Tauhida')
+    // SLL.remove('Husker') // remove not working
+    // SLL.insertBefore('Helo', 'Starbuck')
+    // SLL.insertAfter('Hotdog', 'Helo')
+    // SLL.find('Helo')
     //SLL.insertAt('Kat', 3)
-    //SLL.remove('Tahuida')
+    // SLL.remove('Apollo') // remove not working
 
     return SLL
 }
 
 const LKDLST = main()
+//console.log(LKDLST)
 
 const display = LL => {
     let output = ''
@@ -163,7 +164,7 @@ const display = LL => {
     while(currNode !== null) {
         output += currNode.val
         if(currNode.next !== null) {
-            output += ' > '
+            output += ' -> '
         }
         currNode = currNode.next
     } 
@@ -204,7 +205,7 @@ const findPrevious = (item, LL) => {
     }
     return prevNode.val
 }
-console.log(findPrevious('Husker', LKDLST))
+console.log('find previous', findPrevious('Husker', LKDLST))
 
 
 const findLast = LL => {
@@ -217,7 +218,7 @@ const findLast = LL => {
     }
     return currNode.val
 }
-console.log(findLast(LKDLST))
+console.log('find last', findLast(LKDLST))
 
 
 'Reverse a list'
