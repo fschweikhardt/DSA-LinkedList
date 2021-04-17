@@ -220,6 +220,14 @@ const findLast = LL => {
 }
 console.log('find last', findLast(LKDLST))
 
+'Mystery program'
 
 'Reverse a list'
 
+'3rd from the end'
+
+'Middle of a list'
+
+'Cycle in a list'
+
+'Sorting a list'
