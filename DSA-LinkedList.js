@@ -148,10 +148,10 @@ const main = () => {
     // SLL.find('Helo')
     // SLL.insertAt('Kat', 3)
     // SLL.remove('Apollo')
-    SLL.insertFirst(3)
-    SLL.insertLast(4)
-    SLL.insertLast(1)
-    SLL.insertLast(2)
+    SLL.insertFirst(100)
+    SLL.insertLast(200)
+    SLL.insertLast(300)
+    // SLL.insertLast(2)
 
 
     return SLL
@@ -307,3 +307,14 @@ function cycle(list) {
 
 
 'Sorting a list'
+
+function sort(list) {
+    if (!list.head) return null
+    let currNode = list.head
+    let x = currNode.value
+    let y = currNode.next.value
+    let sortedList
+    return x > y ? x : y
+}
+
+console.log('sort', sort(LL))
