@@ -141,7 +141,7 @@ const main = () => {
     SLL.insertLast('Helo')
     SLL.insertLast('Husker')
     SLL.insertLast('Starbuck')
-    // SLL.insertLast('Tauhida')
+    SLL.insertLast('Tauhida')
     // SLL.remove('Husker') // remove not working
     // SLL.insertBefore('Helo', 'Starbuck')
     // SLL.insertAfter('Hotdog', 'Helo')
@@ -163,14 +163,14 @@ const display = LL => {
     }
     while(currNode !== null) {
         output += currNode.val
-        if(currNode.next !== null) {
+        if (currNode.next !== null) {
             output += ' -> '
         }
         currNode = currNode.next
     } 
      return output
 }
-console.log('display', display(LKDLST))
+console.log('display: ', display(LKDLST))
 
 
 const size = LL => {
@@ -187,7 +187,7 @@ console.log('size', size(LKDLST))
 const isEmpty = LL => {
     return (LL.head === null ? true : false)
 }
-console.log('Is Empty?', isEmpty(LKDLST))
+console.log('isEmpty?', isEmpty(LKDLST))
 
 
 const findPrevious = (item, LL) => {
@@ -205,7 +205,7 @@ const findPrevious = (item, LL) => {
     }
     return prevNode.val
 }
-console.log('find previous', findPrevious('Husker', LKDLST))
+console.log('findPrevious: ', findPrevious('Husker', LKDLST))
 
 
 const findLast = LL => {
@@ -218,11 +218,30 @@ const findLast = LL => {
     }
     return currNode.val
 }
-console.log('find last', findLast(LKDLST))
+console.log('findLast: ', findLast(LKDLST))
 
 'Mystery program'
 
 'Reverse a list'
+
+function reverseList(list) {
+    if (!list.head) return null
+
+    let currNode = list.head
+    let reversed
+    console.log(list.head.next)
+    
+    while (currNode !== null) {
+        // console.log(currNode.next)
+        let tempNode = currNode.next
+        currNode.next = reversed
+        reversed = currNode
+        currNode = tempNode
+    }
+   // list.head = reversed
+    return reversed//list
+  }
+  console.log(reverseList(LKDLST))
 
 '3rd from the end'
 
