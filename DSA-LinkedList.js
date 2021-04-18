@@ -136,9 +136,9 @@ class LinkedList {
 const main = () => {
     const SLL = new LinkedList()
 
-    SLL.insertFirst('Apollo')
-    SLL.insertLast('Boomer')
-    SLL.insertLast('Helo')
+    // SLL.insertFirst('Apollo')
+    // SLL.insertLast('Boomer')
+    // SLL.insertLast('Helo')
     // SLL.insertLast('Husker')
     // SLL.insertLast('Starbuck')
     // SLL.insertLast('Tauhida')
@@ -148,6 +148,11 @@ const main = () => {
     // SLL.find('Helo')
     // SLL.insertAt('Kat', 3)
     // SLL.remove('Apollo')
+    SLL.insertFirst(3)
+    SLL.insertLast(4)
+    SLL.insertLast(1)
+    SLL.insertLast(2)
+
 
     return SLL
 }
@@ -288,7 +293,6 @@ function cycle(list) {
     if (!list.head) return null
     let currNode = list.head
     let newCurrNode = list.head
-    console.log('newCurrentNode', newCurrNode)
     while (currNode !== null) {
         console.log(currNode)
         if (currNode.next === null) {
