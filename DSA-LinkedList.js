@@ -139,9 +139,9 @@ const main = () => {
     SLL.insertFirst('Apollo')
     SLL.insertLast('Boomer')
     SLL.insertLast('Helo')
-    SLL.insertLast('Husker')
-    SLL.insertLast('Starbuck')
-    SLL.insertLast('Tauhida')
+    // SLL.insertLast('Husker')
+    // SLL.insertLast('Starbuck')
+    // SLL.insertLast('Tauhida')
     // SLL.remove('Husker')
     // SLL.insertBefore('Helo', 'Starbuck')
     // SLL.insertAfter('Hotdog', 'Helo')
@@ -247,9 +247,8 @@ function reverseList(list) {
 '3rd from the end'
 
 function thirdFromEnd(list) {
-    if (list.head === null) return null
+    if (!list.head) return null
     let currNode = list.head
-    //if one node
     if (!currNode.next) return 'only 1 item!'
     if (!currNode.next.next) return 'only 2 items!'
     while (currNode.next.next.next !== null) {
@@ -258,10 +257,49 @@ function thirdFromEnd(list) {
     return currNode.value
 }
 
-console.log('thiredFromEnd', thirdFromEnd(LL))
+console.log('thirdFromEnd', thirdFromEnd(LL))
 
 'Middle of a list'
 
+function findMiddle (list) {
+    if (!list.head){
+      return null
+    }
+    else if (!list.head.next){
+      return list.head
+    }
+    else {
+      let fast = list.head;
+      let slow = list.head;
+  
+      while ((fast !== null) && (fast.next !== null)){
+        fast  = fast.next.next
+        slow = slow.next
+      } 
+      return slow.value;
+    }
+  }
+  console.log('findMiddle', findMiddle(LL))
+
+
 'Cycle in a list'
+
+function cycle(list) {
+    if (!list.head) return null
+    let currNode = list.head
+    let newCurrNode = list.head
+    console.log('newCurrentNode', newCurrNode)
+    while (currNode !== null) {
+        console.log(currNode)
+        if (currNode.next === null) {
+            currNode.next = newCurrNode
+        }
+        currNode = currNode.next
+    }
+}
+
+//creates an infinite loop
+//console.log('cycle', cycle(LL))
+
 
 'Sorting a list'
