@@ -138,15 +138,15 @@ const main = () => {
 
     SLL.insertFirst('Apollo')
     SLL.insertLast('Boomer')
-    SLL.insertLast('Helo')
+    // SLL.insertLast('Helo')
     SLL.insertLast('Husker')
     SLL.insertLast('Starbuck')
     SLL.insertLast('Tauhida')
     // SLL.remove('Husker')
-    // SLL.insertBefore('Helo', 'Starbuck')
+    SLL.insertBefore('Helo', 'Starbuck')
     // SLL.insertAfter('Hotdog', 'Helo')
     // SLL.find('Helo')
-    //SLL.insertAt('Kat', 3)
+    // SLL.insertAt('Kat', 3)
     // SLL.remove('Apollo')
 
     return SLL
@@ -155,7 +155,7 @@ const main = () => {
 const LKDLST = main()
 //console.log(LKDLST)
 
-const display = LL => {
+function display(LL) {
     let output = ''
     let currNode = LL.head
     if (LL.head === null) {
@@ -173,7 +173,7 @@ const display = LL => {
 console.log('display: ', display(LKDLST))
 
 
-const size = LL => {
+function size(LL) {
     let size = 0
     let currNode = LL.head
     while(currNode !== null) {
@@ -184,13 +184,14 @@ const size = LL => {
   }
 console.log('size', size(LKDLST))
 
-const isEmpty = LL => {
+
+function isEmpty(LL) {
     return (LL.head === null ? true : false)
 }
 console.log('isEmpty?', isEmpty(LKDLST))
 
 
-const findPrevious = (item, LL) => {
+function findPrevious(item, LL) {
     if (LL.head === null) {
         return 'linked list is empty'
     } 
@@ -208,7 +209,7 @@ const findPrevious = (item, LL) => {
 console.log('findPrevious: ', findPrevious('Husker', LKDLST))
 
 
-const findLast = LL => {
+function findLast(LL) {
     if (LL.head === null) {
         return 'linked list is empty'
     }
@@ -219,6 +220,7 @@ const findLast = LL => {
     return currNode.value
 }
 console.log('findLast: ', findLast(LKDLST))
+
 
 'Mystery program'
 
@@ -241,7 +243,7 @@ function reverseList(list) {
 
     return reversedCurrent
   }
-  console.log(reverseList(LKDLST))
+console.log(reverseList(LKDLST))
 
 '3rd from the end'
 
