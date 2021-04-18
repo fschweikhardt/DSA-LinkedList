@@ -1,8 +1,8 @@
 'DSA-LinkedList'
 
 class _Node {
-    constructor(val, next) {
-      this.val = val
+    constructor(value, next) {
+      this.value = value
       this.next = next
     }
   }
@@ -82,7 +82,7 @@ class LinkedList {
         let currNode = this.head
         let prevNode = this.head
     
-        while (currNode !== null && currNode.val !== beforeItem) {
+        while (currNode !== null && currNode.value !== beforeItem) {
           prevNode = currNode
           currNode = currNode.next
         }
@@ -142,12 +142,12 @@ const main = () => {
     SLL.insertLast('Husker')
     SLL.insertLast('Starbuck')
     SLL.insertLast('Tauhida')
-    // SLL.remove('Husker') // remove not working
+    // SLL.remove('Husker')
     // SLL.insertBefore('Helo', 'Starbuck')
     // SLL.insertAfter('Hotdog', 'Helo')
     // SLL.find('Helo')
     //SLL.insertAt('Kat', 3)
-    // SLL.remove('Apollo') // remove not working
+    // SLL.remove('Apollo')
 
     return SLL
 }
@@ -162,7 +162,7 @@ const display = LL => {
         return 'nothing to display'
     }
     while(currNode !== null) {
-        output += currNode.val
+        output += currNode.value
         if (currNode.next !== null) {
             output += ' -> '
         }
@@ -196,14 +196,14 @@ const findPrevious = (item, LL) => {
     } 
     let currNode = LL.head
     let prevNode = LL.head
-    while (currNode !== null && currNode.val !== item) {
+    while (currNode !== null && currNode.value !== item) {
         prevNode = currNode
         currNode = currNode.next
     }
     if (currNode === null) {
         return 'item not found'
     }
-    return prevNode.val
+    return prevNode.value
 }
 console.log('findPrevious: ', findPrevious('Husker', LKDLST))
 
@@ -216,7 +216,7 @@ const findLast = LL => {
     while(currNode.next !== null) {
         currNode = currNode.next
     }
-    return currNode.val
+    return currNode.value
 }
 console.log('findLast: ', findLast(LKDLST))
 
@@ -229,16 +229,17 @@ function reverseList(list) {
 
     let currNode = list.head
     let reversedCurrent
-    
+
     while (currNode !== null) {
-        
+        // console.log('currentNode', currNode)
+        // console.log('currentNode.next', currNode.next)
         let tempNode = currNode.next
         currNode.next = reversedCurrent
-        reversed = currNode
+        reversedCurrent = currNode
         currNode = tempNode
     }
-   // list.head = reversed
-    return reversed//list
+
+    return reversedCurrent
   }
   console.log(reverseList(LKDLST))
 
