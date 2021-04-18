@@ -228,13 +228,12 @@ function reverseList(list) {
     if (!list.head) return null
 
     let currNode = list.head
-    let reversed
-    console.log(list.head.next)
+    let reversedCurrent
     
     while (currNode !== null) {
-        // console.log(currNode.next)
+        
         let tempNode = currNode.next
-        currNode.next = reversed
+        currNode.next = reversedCurrent
         reversed = currNode
         currNode = tempNode
     }
