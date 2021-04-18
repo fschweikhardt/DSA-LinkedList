@@ -138,12 +138,12 @@ const main = () => {
 
     SLL.insertFirst('Apollo')
     SLL.insertLast('Boomer')
-    // SLL.insertLast('Helo')
+    SLL.insertLast('Helo')
     SLL.insertLast('Husker')
     SLL.insertLast('Starbuck')
     SLL.insertLast('Tauhida')
     // SLL.remove('Husker')
-    SLL.insertBefore('Helo', 'Starbuck')
+    // SLL.insertBefore('Helo', 'Starbuck')
     // SLL.insertAfter('Hotdog', 'Helo')
     // SLL.find('Helo')
     // SLL.insertAt('Kat', 3)
@@ -152,15 +152,14 @@ const main = () => {
     return SLL
 }
 
-const LKDLST = main()
-//console.log(LKDLST)
+const LL = main()
 
-function display(LL) {
+function display(list) {
+    if (!list.head) return null
+
     let output = ''
-    let currNode = LL.head
-    if (LL.head === null) {
-        return 'nothing to display'
-    }
+    let currNode = list.head
+
     while(currNode !== null) {
         output += currNode.value
         if (currNode.next !== null) {
@@ -168,35 +167,37 @@ function display(LL) {
         }
         currNode = currNode.next
     } 
-     return output
+
+    return output
 }
-console.log('display: ', display(LKDLST))
+console.log('display: ', display(LL))
 
 
-function size(LL) {
+function size(list) {
     let size = 0
-    let currNode = LL.head
+    let currNode = list.head
+
     while(currNode !== null) {
         size++
         currNode = currNode.next
     }
     return size
   }
-console.log('size', size(LKDLST))
+console.log('size', size(LL))
 
 
-function isEmpty(LL) {
-    return (LL.head === null ? true : false)
+function isEmpty(list) {
+    return (list.head === null ? true : false)
 }
-console.log('isEmpty?', isEmpty(LKDLST))
+console.log('isEmpty?', isEmpty(LL))
 
 
-function findPrevious(item, LL) {
-    if (LL.head === null) {
-        return 'linked list is empty'
-    } 
-    let currNode = LL.head
-    let prevNode = LL.head
+function findPrevious(item, list) {
+    if (!list.head) return null
+
+    let currNode = list.head
+    let prevNode = list.head
+
     while (currNode !== null && currNode.value !== item) {
         prevNode = currNode
         currNode = currNode.next
@@ -206,20 +207,19 @@ function findPrevious(item, LL) {
     }
     return prevNode.value
 }
-console.log('findPrevious: ', findPrevious('Husker', LKDLST))
+console.log('findPrevious: ', findPrevious('Husker', LL))
 
 
-function findLast(LL) {
-    if (LL.head === null) {
-        return 'linked list is empty'
-    }
-    let currNode = LL.head
+function findLast(list) {
+    if (!list.head) return null
+    let currNode = list.head
+
     while(currNode.next !== null) {
         currNode = currNode.next
     }
     return currNode.value
 }
-console.log('findLast: ', findLast(LKDLST))
+console.log('findLast: ', findLast(LL))
 
 
 'Mystery program'
@@ -233,8 +233,6 @@ function reverseList(list) {
     let reversedCurrent
 
     while (currNode !== null) {
-        // console.log('currentNode', currNode)
-        // console.log('currentNode.next', currNode.next)
         let tempNode = currNode.next
         currNode.next = reversedCurrent
         reversedCurrent = currNode
@@ -243,9 +241,24 @@ function reverseList(list) {
 
     return reversedCurrent
   }
-console.log(reverseList(LKDLST))
+//console.log(reverseList(LL))
+
 
 '3rd from the end'
+
+function thirdFromEnd(list) {
+    if (list.head === null) return null
+    let currNode = list.head
+    //if one node
+    if (!currNode.next) return 'only 1 item!'
+    if (!currNode.next.next) return 'only 2 items!'
+    while (currNode.next.next.next !== null) {
+        currNode = currNode.next
+    }
+    return currNode.value
+}
+
+console.log('thiredFromEnd', thirdFromEnd(LL))
 
 'Middle of a list'
 
